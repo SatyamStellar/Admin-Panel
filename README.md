@@ -14,7 +14,6 @@ A modern, responsive Admin Panel built with **React**, **Tailwind CSS**, **Fireb
 - ⚛️ React 19 with hooks
 - 📦 State management with Zustand
 
-
 ---
 
 ## 📁 Project Structure
@@ -41,18 +40,21 @@ A modern, responsive Admin Panel built with **React**, **Tailwind CSS**, **Fireb
 ## 🔧 Setup & Installation
 
 1. **Clone the repo:**
+
 ```bash
   git clone https://github.com/your-username/admin-panel.git
   cd admin-panel
 ```
 
-## Installation 
+## Installation
+
 ```bash
   pnpm install
   pnpm run dev
 ```
 
 ### .env Setup
+
 ```
 VITE_FIREBASE_API_KEY=AIzaSyCq6MEHAvptpjWctXQ7BI6QbWQSmdP3vHw
 VITE_FIREBASE_AUTH_DOMAIN=new-proj-3f502.firebaseapp.com

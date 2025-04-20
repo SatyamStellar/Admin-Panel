@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getDocs, collection, query, where } from 'firebase/firestore';
+import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../utils/firebase';
 import Sidebar from '../components/Layout/Sidebar';
 import Header from '../components/Layout/Header';
@@ -30,46 +30,40 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
-      {/* Sidebar */}
+    <div className="flex min-h-screen bg-gradient-to-br from-gray-50 to-gray-200">
       <Sidebar />
 
-      {/* Main Content */}
       <div className="flex-1 flex flex-col">
-        {/* Header */}
         <Header />
 
-        {/* Dashboard Content */}
-        <div className="p-6">
-          <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
+        <div className="p-8">
+          <h1 className="text-3xl font-extrabold mb-8 text-gray-800">Dashboard</h1>
 
-          {/* Overview Section */}
           <Overview stats={stats} />
 
-          {/* Quick Links */}
-          <div className="mt-8">
-            <h2 className="text-lg font-semibold mb-4">Quick Links</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="mt-10">
+            <h2 className="text-xl font-semibold mb-6 text-gray-700">Quick Links</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <Link
                 to="/users"
-                className="bg-white p-4 rounded shadow hover:bg-gray-50 transition"
+                className="bg-white p-6 rounded-2xl shadow-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
               >
-                <h3 className="text-lg font-bold">Manage Users</h3>
-                <p className="text-gray-600">View, add, edit, or delete users.</p>
+                <h3 className="text-lg font-bold text-gray-800">Manage Users</h3>
+                <p className="text-gray-600 mt-2">View, add, edit, or delete users.</p>
               </Link>
               <Link
                 to="/logs"
-                className="bg-white p-4 rounded shadow hover:bg-gray-50 transition"
+                className="bg-white p-6 rounded-2xl shadow-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
               >
-                <h3 className="text-lg font-bold">Activity Logs</h3>
-                <p className="text-gray-600">View recent activity and logs.</p>
+                <h3 className="text-lg font-bold text-gray-800">Activity Logs</h3>
+                <p className="text-gray-600 mt-2">View recent activity and logs.</p>
               </Link>
               <Link
                 to="/settings"
-                className="bg-white p-4 rounded shadow hover:bg-gray-50 transition"
+                className="bg-white p-6 rounded-2xl shadow-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
               >
-                <h3 className="text-lg font-bold">Settings</h3>
-                <p className="text-gray-600">Configure admin panel settings.</p>
+                <h3 className="text-lg font-bold text-gray-800">Settings</h3>
+                <p className="text-gray-600 mt-2">Configure admin panel settings.</p>
               </Link>
             </div>
           </div>

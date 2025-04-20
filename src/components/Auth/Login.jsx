@@ -10,7 +10,6 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        // Validate inputs
         if (!email.trim() || !password.trim()) {
             toast.error('Email and password are required.');
             return;
@@ -20,7 +19,7 @@ const Login = () => {
             await loginWithEmail(email, password);
             toast.success('Logged in successfully!');
         } catch (error) {
-            console.error('Full error:', error); // Log the full error object
+            console.error('Full error:', error);
             if (error.code === 'auth/user-not-found') {
                 toast.error('User not found. Please register.');
             } else if (error.code === 'auth/wrong-password') {
@@ -32,10 +31,10 @@ const Login = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-                <h2 className="text-2xl font-bold mb-4">Login</h2>
-                <form onSubmit={handleLogin} className="space-y-4">
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-50 to-gray-200">
+            <div className="bg-white p-10 rounded-2xl shadow-lg w-full max-w-md transform transition-all hover:scale-105">
+                <h2 className="text-3xl font-extrabold mb-6 text-gray-800 text-center">Sign In</h2>
+                <form onSubmit={handleLogin} className="space-y-6">
                     {/* Email Field */}
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
@@ -47,11 +46,10 @@ const Login = () => {
                             placeholder="Enter your email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full p-2 border rounded mt-1"
+                            className="w-full p-3 border border-gray-300 rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                         />
                     </div>
 
-                    {/* Password Field */}
                     <div>
                         <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                             Password
@@ -62,24 +60,22 @@ const Login = () => {
                             placeholder="Enter your password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full p-2 border rounded mt-1"
+                            className="w-full p-3 border border-gray-300 rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                         />
                     </div>
 
-                    {/* Submit Button */}
                     <button
                         type="submit"
-                        className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+                        className="w-full py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 font-semibold"
                     >
                         Login
                     </button>
                 </form>
 
-                {/* Register Link */}
-                <div className="mt-4 text-center">
+                <div className="mt-6 text-center">
                     <p className="text-sm text-gray-600">
                         Don't have an account?{' '}
-                        <Link to="/register" className="text-blue-500 hover:underline">
+                        <Link to="/register" className="text-blue-600 hover:text-blue-800 transition font-medium">
                             Register here
                         </Link>
                     </p>

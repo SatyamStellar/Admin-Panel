@@ -20,32 +20,34 @@ const ActivityLogs = () => {
     }, []);
 
     return (
-        <div className="p-6">
-            <h1 className="text-2xl font-bold mb-6">Activity Logs</h1>
-            <table className="w-full bg-white rounded overflow-hidden">
-                <thead className="bg-gray-200">
-                    <tr>
-                        <th className="p-2">User</th>
-                        <th className="p-2">Action</th>
-                        <th className="p-2">Timestamp</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {logs.length > 0 ? (
-                        logs.map((log) => (
-                            <tr key={log.id} className="border-b">
-                                <td className="p-2">{log.user || 'Unknown'}</td>
-                                <td className="p-2">{log.action || 'No action'}</td>
-                                <td className="p-2">{new Date(log.timestamp?.toDate()).toLocaleString()}</td>
-                            </tr>
-                        ))
-                    ) : (
+        <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-200 min-h-screen">
+            <h1 className="text-3xl font-extrabold mb-8 text-gray-800">Activity Logs</h1>
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <table className="w-full">
+                    <thead className="bg-gray-100">
                         <tr>
-                            <td colSpan="3" className="p-2 text-center">No logs available</td>
+                            <th className="p-4 text-left text-sm font-semibold text-gray-700">User</th>
+                            <th className="p-4 text-left text-sm font-semibold text-gray-700">Action</th>
+                            <th className="p-4 text-left text-sm font-semibold text-gray-700">Timestamp</th>
                         </tr>
-                    )}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {logs.length > 0 ? (
+                            logs.map((log) => (
+                                <tr key={log.id} className="border-b border-gray-200 hover:bg-gray-50 transition">
+                                    <td className="p-4 text-gray-600">{log.user || 'Unknown'}</td>
+                                    <td className="p-4 text-gray-600">{log.action || 'No action'}</td>
+                                    <td className="p-4 text-gray-600">{new Date(log.timestamp?.toDate()).toLocaleString()}</td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="3" className="p-4 text-center text-gray-500">No logs available</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
